@@ -1,15 +1,29 @@
 import React from "react";
 import Header from "./Header";
 import Sidebar from "./Sidebar";
+import Mail from "./Mail";
+import EmailList from "./EmailList";
 import MenuIcon from "@material-ui/icons/Menu";
 import "./App.css";
-
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 function App() {
   return (
-    <div className="App">
-      <Header />
-      <Sidebar />
-    </div>
+    <Router>
+      <div className="App">
+        <Header />
+        <div className="app__body">
+          <Sidebar />
+          <Switch>
+            <Route path="/mail">
+              <Mail />
+            </Route>
+            <Route path="/">
+              <EmailList />
+            </Route>
+          </Switch>
+        </div>
+      </div>
+    </Router>
   );
 }
 
